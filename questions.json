@@ -1,0 +1,66 @@
+var questions = {
+"en":
+[
+	{
+		"text": "Your SMS communications are sent in an encrypted format.",
+		"section": "l1_a",
+		"message": "This is false. SMS communications are not encrypted. SMS messages, phone conversations, email and several other communications are sent in the open.",
+		"answers": [
+			{
+				"text": "True",
+				"value": false
+			},
+			{
+				"text": "False",
+				"value": true
+			}
+		]
+	},
+	{
+		"text": "Someone sharing the same internet café wi-fi connection can read the contents of your email.",
+		"section": "l1_a",
+		"message": "This is true. It is possible for someone sharing the same internet wi-fi connection to read the contents of all of your internet traffic, using readily available open-source software.",
+		"answers": [
+			{
+				"text": "True",
+				"value": true
+			},
+			{
+				"text": "False",
+				"value": false
+			}
+		]
+	},
+	{
+		"text": "Metadata is not necessarily protected even if you have encrypted your communications.",
+		"section": "l1_a",
+		"message": "This is true. Using encryption to protect the content of communications such as chats, emails, and voice conversations does not mean related metadata (such as phone numbers, user names, IPs, etc.) are also protected. Additional protections may be needed.",
+		"answers": [
+			{
+				"text": "True",
+				"value": true
+			},
+			{
+				"text": "False",
+				"value": false
+			}
+		]
+	},
+	{
+		"text": "Using a Taiwan-based cell service will provide protection on the network when communicating inside China",
+		"section": "l1_a",
+		"message": "This is false. Using a non-Chinese service does not mean your communications are hidden inside China. All communications inside China switch over to Chinese network services.",
+		"answers": [
+			{
+				"text": "True",
+				"value": false
+			},
+			{
+				"text": "False",
+				"value": true
+			}
+		]
+	}
+]
+
+}

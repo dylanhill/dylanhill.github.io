@@ -1,0 +1,133 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" href="main.css">
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="questions.json"></script> 
+
+<script> 
+
+$( document ).ready(function() {
+    loadQuiz('l1_a', 'en', questions);
+    $(".q_radio").click(function() {
+    	parent = $(this).parent();
+    	selector = parent[0].id;
+    	$('#' + selector + " > #message").css("display", "block");
+    	//$('#message').css("display", "block");
+
+    });
+
+});
+
+//print the questions that belong to this quiz (id), and the selected language to the page
+function loadQuiz(id, lng, questions) {
+	//alternate background color for each question
+	bg = true;
+	id = id;
+	questions = questions[lng];
+	//write each question
+	for (q in questions) {
+		if (questions[q]['section'] == id) {
+			writeQuestion(questions[q], bg, q);
+			bg = !bg;
+		};
+
+	}
+	//hide the question messages
+	$('#message').hide();
+};
+
+function writeQuestion(question, bg, count) {
+	//html template for quiz question
+
+	//alternate background color for each question
+	bgcolor = "";
+	if (bg == true) {
+		bgcolor ="<div class='row main-header question darkkdiv'>" 
+	}
+	else if (bg == false) {
+		bgcolor ="<div class='row main-header question'>" 
+	}
+	title= question.text;
+	message = question.message;
+	answers = question.answers;
+	id = question.section + "_" + count;
+
+	q_html = bgcolor +
+		"<div class='col-sm-12' id='" + id + "'>" +
+		"<h3>" + title + "</h3>";
+
+	a_html="";
+	for (a in answers) {
+		answer = answers[a];
+		a_html += "<input class='q_radio' type='radio' value=" + answer.value + ">" +
+			"<label class='q_radio_label'>" + answer.text + "</label><br>";
+	}
+
+	q_end_html = "<div id='message'>"+ message + "</div>"
+				"</div>" +
+				"</div>";
+
+	html = q_html + a_html + q_end_html;
+
+	//append final full question html
+	$( "#quiz" ).append(html);
+};
+
+function checkAnswer(){
+	alert('clicked');
+}
+
+</script>
+
+
+</head>
+<body>
+
+
+
+<div class="container-fluid">
+
+<div id="quiz">
+	<div class="row main-header">
+		<div class="col-sm-12">
+			<a href="index.html">Protecting Yourself in the Digital</a> | <a href="risks.html">Lesson 1: Risks</a>
+			<h1>Pop Quiz</h1>
+			<p>You can select options below to test your knowledge before moving to the next topic:</p>
+
+		</div>
+	</div>
+
+
+</div>
+
+<div class="row">
+
+	<div class="col-sm-12">
+		<hr>
+		<div class="text-left"><a href="networksnooping.html" class="btn btn-primary text-left"><< Previous Topic</a></div>
+		<div class="text-right"><a href="networkanalysis.html" class="btn btn-primary text-right">Next Topic >></a></div>
+		 <hr>
+    </div>
+  
+</div>
+
+
+
+
+<!--end container-fluid-->
+</div>
+
+</body>
+</html>
+
