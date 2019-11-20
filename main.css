@@ -69,3 +69,7 @@ th {
 #message {
 	display: none;
 }
+
+.correct, .incorrect {
+	max-height: 100px;
+}
